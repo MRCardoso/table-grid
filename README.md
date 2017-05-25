@@ -1,22 +1,28 @@
 ## Angular directive for create table grid
 
-### Run the example, in the terminal, open the browser in 'http://localhost:3000/'
+Run the example, in the terminal, open the browser in 'http://localhost:3000/'
+
 ```` $ node server ````
  
 ### Installation
 ```` $ bower install mrc-table-grid ````
 
-### Include the files
+Add the css and javascript files
+
 `````
 <link rel="stylesheet" type="text/css" href="./bower_components/table-grid/dist/table-grid.css">
 <script language="JavaScript" src="./bower_components/table-grid/dist/table-grid.js"></script>
 `````
 
-### Add the dependence in the your module:
+Add the dependence in the your module:
+
 ``` angular.module('app', ['ngRoute','ngResource','ui.bootstrap','angularUtils.directives.dirPagination', 'table.grid']) ```
 
-#### Example
-#### View
+
+## Example
+
+Html code to add in the view:
+
 ```
 <table-grid 
      limit="limit"
@@ -32,7 +38,8 @@
  </table-grid>
 ```
 
-#### Controller
+Scriot code to add in the Controller:
+
 ```
 $scope.limit = 10;
 $scope.module = 'test';
