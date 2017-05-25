@@ -1,9 +1,23 @@
 {
   "name": "table-grid",
   "version": "0.0.5",
+  "authors": "MRCardoso <cardozinhos.mrc@gmail.com>",
+  "description": "create the base structure of the a table",
+  "license": "MIT",
   "main": "index.ejs",
   "dependencies": {
     "ejs": "^2.5.6",
     "express": "~4.8.8"
+  },
+  "keywords": [
+    "angularjs",
+    "table-grid",
+    "pagination-search",
+    "table",
+    "directive"
+  ],
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/MRCardoso/table-grid.git"
   }
 }

@@ -10,7 +10,11 @@
   ],
   "keywords": [
     "table",
-    "table-grid"
+    "table-grid",
+    "angularjs",
+    "table-grid",
+    "pagination-search",
+    "directive"
   ],
   "license": "MIT",
   "homepage": "https://github.com/MRCardoso/table-grid",
