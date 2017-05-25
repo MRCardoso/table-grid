@@ -36,7 +36,7 @@ angular.module('table.grid',[
                 searchOptions: '=searchOptions', // the object with the options of the extra options sent to inner directive
                 order: '@order' // Set the ordenation of the grid
             },
-            templateUrl: "/src/templates/table-grid.html",//"grid-template.html",
+            templateUrl: "grid-template.html",//"/src/templates/table-grid.html",
             controller: ["$scope", "$location", "$filter",'tableConfig', /*"Authentication",*/ 
             function($scope, $location, $filter, tableConfig/*, Authentication*/)
             {
@@ -94,7 +94,7 @@ angular.module('table.grid',[
     {
         return {
             restrict: 'E',
-            templateUrl: "/src/templates/search-grid.html",//'search-grid.html',
+            templateUrl: 'search-grid.html',//"/src/templates/search-grid.html",
             scope: {                
                 moduleName: '=moduleName', // the name of the current module(interface)
                 limit: '=?limit', // the limitation of the itens by page at the grid                
@@ -146,7 +146,7 @@ angular.module('table.grid',[
     {
         return {
             restrict: 'E',
-            templateUrl: '/src/templates/header-grid.html',
+            templateUrl: 'header-grid.html', //'/src/templates/header-grid.html',
             scope: {
                 lines: '=?lines',
                 save: '=save'
@@ -165,7 +165,7 @@ angular.module('table.grid',[
     {        
         return {
             restrict: 'E',
-            templateUrl: "/src/templates/label-grid.html",//'label-template.html',
+            templateUrl: 'label-template.html',//"/src/templates/label-grid.html",
             scope: {
                 hasIcon: '@hasIcon',
                 index: '=index',
@@ -183,7 +183,7 @@ angular.module('table.grid',[
     {
         return {
             restrict: 'E',
-            templateUrl: '/src/templates/table-action.html',
+            templateUrl: 'table-action.html',//'/src/templates/table-action.html',
             scope: {
                 module: '=module'
             },
@@ -202,4 +202,15 @@ angular.module('table.grid',[
                 }
             }]
         };
+    }).run(function($templateCache){
+        // temporary
+        $templateCache.put('grid-template.html', '<!--Block with breadcrumb--><header-grid lines="$parent.lines" save="false"></header-grid><div ng-if="searchOptions != undefined"><!--Block with pagination, search and add button--><paginate-search-grid filter="$parent.filter" limit="limit" with-search="searchOptions.withSearch" with-create="searchOptions.withCreate" module-name="searchOptions.moduleName"></paginate-search-grid></div><!--Block with table template default--><table class="table table-striped table-bordered table-hover content table-responsive"><thead><tr><th ng-repeat="f in fields">{{f.label}}</th><th>Ações</th></tr></thead><tbody><tr dir-paginate="model in model | orderBy: order | filter: filter | itemsPerPage: limit" current-page="currentPage"><td ng-repeat="f in fields"><div ng-if="f.type==\'simple\'" ng-bind="renderLine(model, f)"></div><div ng-if="f.type==\'filter\'"><span ng-bind="addFilter(model, f, f.filter)"></span></div><div ng-if="f.type==\'link\' && f.url !=\'undefined\'"><a ng-href="{{f.url==\'view\' ? \'/#!/\'+moduleName+\'/\'+model._id : f.url }}" ng-bind="renderLine(model, f)"></a></div><div ng-if="f.type==\'image\'"><image-s3 url="renderLine(model, f)" path="f.pathImage" with-user-id="{{f.userId}}" alt="imagem" class="image-thumb-4"></image-s3></div><div ng-if="f.type==\'template\'"><label-item has-icon="f.icon" item="{{f.column}}" index="model[f.column]"></label-item></div></td><td align="center"><div ng-if="!isOwner"><table-action module="{id: model._id, name: moduleName, actions: actions}"></table-action></div></td></tr></tbody></table>');
+        
+        $templateCache.put('search-grid.html', '<div class="template-head"><div class="col-md-4"><div ng-show="totalItems > limit"><div class="text-right"><dir-pagination-controls max-size="4" boundary-links="true" on-page-change="changePage(newPageNumber)"></dir-pagination-controls></div></div><div ng-if="totalItems == 0 && (filter != null && filter != \'\')"><span class="glyphicon glyphicon-info-sign"></span>Nenhum resultado encontrado para <strong>\'{{filter}}\'</strong></div></div><div class="col-md-8" ng-if="withSearch"><div class="input-group"><div class="input-group-btn"><a ng-href class="btn btn-default" style="cursor: move"><i ng-bind="currentPage+\'/\'+(totalItems/limit | round)+\' - \'+totalItems"></i></a></div><input type="text" ng-model="$parent.filter" ng-change="listen()" class="form-control" placeholder="procure por um registro..."><div class="input-group-btn" ng-show="withCreate==true"><a ng-href="{{createUrl()}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Novo</a></div></div></div><div class="clear"></div></div>');
+
+        $templateCache.put('header-grid.html', '<div ng-class="{\'border content content-large\': save == true}"><ul class="breadcrumb"><li><a ng-href="/#!/">Home</a></li><li ng-repeat="row in lines"><a ng-href="/#!/{{row.path}}" data-ng-show="row.path !== false"><span data-ng-bind="row.label"></span></a><span data-ng-bind="row.label" data-ng-show="row.path===false"></span></li></ul></div>');
+
+        $templateCache.put('label-template.html', '<div class="label label-{{data.class}}" uib-tooltip="{{item}} : {{data.name}}" uib-tooltip-placement="top" uib-tooltip-trigger="mouseenter"><span ng-show="hasIcon" class="glyphicon glyphicon-{{data.icon}}"></span><span ng-bind="data.name"></span></div>');
+
+        $templateCache.put('table-action.html', '<div ng-if="module.actions.length>0"><a ng-if="module.actions.indexOf(\'view\') != -1" ng-href="{{createUrl(\'view\')}}" class="no-underline label label-warning" tooltip="Visualizar" tooltip-placement="top" tooltip-trigger="mouseenter"><span class="glyphicon glyphicon-eye-open"></span></a><a ng-if="module.actions.indexOf(\'edit\') != -1" ng-href="{{createUrl(\'edit\')}}" class="no-underline label label-primary" tooltip="Editar" tooltip-placement="top" tooltip-trigger="mouseenter"><span class="glyphicon glyphicon-edit"></span></a><a ng-if="module.actions.indexOf(\'remove\') != -1" ng-href role="button" ng-click="delete(module.id)" class="no-underline label label-danger"tooltip="Remover" tooltip-placement="top" tooltip-trigger="mouseenter"><span class="glyphicon glyphicon-remove"></span></a></div>');
     });
