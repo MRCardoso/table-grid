@@ -13,14 +13,14 @@ $ bower install mrc-table-grid --save
 
 Add the css and javascript files
 
-```javascript
+```Html
 <link rel="stylesheet" type="text/css" href="./bower_components/table-grid/dist/table-grid.css">
 <script language="JavaScript" src="./bower_components/table-grid/dist/table-grid.js"></script>
 ```
 
 Add the dependence in the your module:
 
-```
+```Javascript
 angular.module('app', ['ngRoute','ngResource','ui.bootstrap','angularUtils.directives.dirPagination', 'table.grid'])
 ```
 
