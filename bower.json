@@ -29,5 +29,9 @@
     "angular-resource": "^1.6.2",
     "angularUtils-pagination": "angular-utils-pagination#^0.11.1",
     "angular-bootstrap": "^2.5.0"
+  },
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/MRCardoso/table-grid.git"
   }
 }
