@@ -53,6 +53,8 @@ $scope.actions = ['edit', 'remove'];
 $scope.showCreate = true;
 $scope.showSearch = true;
 $scope.model = [];
+// this variable will be responsable to create the breadcrumb
+$scope.lines = [{path: 'role', label: 'Role'}];
 
 for(let i = 0; i<50; i++)
 {
