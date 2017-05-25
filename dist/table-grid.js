@@ -1,17 +1,30 @@
-angular.module('table.grid',[
+/**
+ * table-grid - AngularJS module to easily the criation of tables of display data
+ * 
+ * Copyright 2017 Marlon R Cardoso <marlonrcardoso@yahoo.com.br>
+ */
+angular
+    .module('table.grid',[
         'angularUtils.directives.dirPagination',
         'ui.bootstrap'
     ])
-    .constant('tableConfig', {
-        url: '',
+    /**
+     * Object with configuration to enable the customize of this directive, aiming the furutes implementations
+     */
+    .constant('tableConfig', {        
         defaultFilter: '',        
         defaultLimit: 5,        
         defaultOrder: '-_id',
-        defaultActions: ['view', 'edit', 'delete'],
+        defaultActions: ['view', 'edit', 'remove'],
         enableButtons: true,
-        authentication: null,
-        appLabels: {},
-        deleteCallback: function(){}
+        appLabels: { "status": {
+            "0": { "name": "Inativo", "class": "default", "icon": "ban-circle" },
+            "1": { "name": "Ativo", "class": "success", "icon": "ok-circle"}
+        }},
+        url: '', // no implemented
+        authentication: null, // no implemented
+        deleteCallback: function(){} // no implemented
+        // factoryTable: informe a factory to use in the callback 'remove'
     })
     .filter('round', function() {
         return function(str,type) {
@@ -154,10 +167,13 @@ angular.module('table.grid',[
             controller: ["$scope", "$location", function($scope, $location)
             {
                 $scope.lines = $scope.lines || [];
-
-                $scope.lines.reverse();
-                $scope.lines[0].path = false;
-                $scope.lines.reverse();
+                
+                if( $scope.lines.length > 0 )
+                {
+                    $scope.lines.reverse();
+                    $scope.lines[0].path = false;
+                    $scope.lines.reverse();
+                }                
             }]
         }
     })
