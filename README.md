@@ -2,10 +2,14 @@
 
 Run the example, in the terminal, open the browser in 'http://localhost:3000/'
 
-```` $ node server ````
+````
+$ node server
+````
  
 ### Installation
-```` $ bower install mrc-table-grid ````
+````
+$ bower install mrc-table-grid 
+````
 
 Add the css and javascript files
 
@@ -16,7 +20,9 @@ Add the css and javascript files
 
 Add the dependence in the your module:
 
-``` angular.module('app', ['ngRoute','ngResource','ui.bootstrap','angularUtils.directives.dirPagination', 'table.grid']) ```
+```
+angular.module('app', ['ngRoute','ngResource','ui.bootstrap','angularUtils.directives.dirPagination', 'table.grid'])
+```
 
 
 ## Example
