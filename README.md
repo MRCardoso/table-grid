@@ -8,7 +8,7 @@ $ node server
  
 ### Installation
 ````
-$ bower install mrc-table-grid 
+$ bower install mrc-table-grid --save
 ````
 
 Add the css and javascript files
@@ -44,7 +44,7 @@ Html code to add in the view:
  </table-grid>
 ```
 
-Scriot code to add in the Controller:
+Script code to add in the Controller:
 
 ```
 $scope.limit = 10;
