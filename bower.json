@@ -13,7 +13,7 @@
     "table-grid"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/MRCardoso/table-grid",
   "ignore": [
     "**/.*",
     "node_modules",
