@@ -69,7 +69,7 @@ for(let i = 0; i<50; i++)
 }
 ```
 
-# arguments availables
+# Arguments Availables
 
 name    | value | Observation
 --------|------ | -----------
