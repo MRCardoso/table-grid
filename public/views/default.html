@@ -1,0 +1,66 @@
+<div ng-controller="TableController">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Custom configurations
+        </div>
+        <div class="panel-body">
+            <div class="form-inline">
+                <div class="form-group">
+                    <label class="control-label col-md-6">
+                        Limitation
+                    </label>
+                    <div class="col-md-4">
+                        <select class="form-control" ng-model="limitation">
+                            <option ng-repeat="item in limits" ng-value="{{item}}">{{item}}</option>
+                        </select>                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-12">
+                        <input type="checkbox" name="showSearch" ng-model="showSearch" value="1">
+                        Show Search
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-12">
+                        <input type="checkbox" name="showCreate" ng-model="showCreate" value="1">
+                        Show Create button
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">
+                        <input type="checkbox" checked="true" name="action[view]" ng-click="addAction('view')">
+                        view
+                    </label>
+
+                    <label class="control-label">
+                        <input type="checkbox" checked="true" name="action[edit]" ng-click="addAction('edit')">
+                        Edit
+                    </label>
+
+                    <label class="control-label">
+                        <input type="checkbox" checked="true" name="action[remove]" ng-click="addAction('remove')">
+                        Delete
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <table-grid 
+        limit="limitation"
+        model="model"
+        actions="actions"
+        module-name="moduleName"
+        search-options="{withSearch: showSearch, withCreate: showCreate, moduleName: moduleName}"
+        fields="[
+            {label: 'Nome', column: 'name', type:'simple'}, 
+            {label: 'Tipo', column: 'type', type:'simple'}, 
+            {label: 'Status', column: 'status', type:'template'}, 
+            {label: 'Criação', column: 'created', filter: ['date', 'dd/MM/yyyy'], type:'filter'}, 
+        ]">
+    </table-grid>
+</div>

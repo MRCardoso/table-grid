@@ -1,0 +1,30 @@
+<div class="template-head">
+    <div class="col-md-4">
+        <div ng-show="totalItems > limit">
+            <div class="text-right">
+                <dir-pagination-controls max-size="4" boundary-links="true" on-page-change="changePage(newPageNumber)"></dir-pagination-controls>
+            </div>
+        </div>
+        <div ng-if="totalItems == 0 && (filter != null && filter != '')">
+            <span class="glyphicon glyphicon-info-sign"></span>
+            Nenhum resultado encontrado para <strong>'{{filter}}'</strong>
+        </div>
+    </div>
+    <div class="col-md-8" ng-if="withSearch">
+        <div class="input-group">    
+            <div class="input-group-btn">
+                <a ng-href class="btn btn-default" style="cursor: move">
+                    <i ng-bind="currentPage+'/'+(totalItems/limit | round)+' - '+totalItems"></i>
+                </a>
+            </div>
+            <input type="text" ng-model="$parent.filter" ng-change="listen()" class="form-control" placeholder="procure por um registro...">
+            <div class="input-group-btn" ng-show="withCreate==true">
+                <a ng-href="{{createUrl()}}" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    Novo
+                </a>
+            </div>    
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>

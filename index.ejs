@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./src/table-grid.css">
+        <title>
+            Example of the table
+        </title>
+    </head>
+
+    <body ng-app="tg">
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="./img/logomarca.png" width="40">
+                </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="/#!/">Example</a>                        
+                    </li>
+                </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <div class="container">
+            <div ng-view></div>
+        </div>
+        
+        <script language="JavaScript" src="./bower_components/jquery/dist/jquery.min.js"></script>
+        <script language="JavaScript" src="./bower_components/angular/angular.js"></script>
+        <script language="JavaScript" src="./bower_components/angular-route/angular-route.js"></script>
+        <script language="Javascript" src="./bower_components/angularUtils-pagination/dirPagination.js"></script>
+        <script language="JavaScript" src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script language="javascript" src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>        
+
+        <script language="JavaScript" src="/src/table-grid.js"></script>
+
+        <script language="JavaScript" src="./controllers/controller.js"></script>        
+        <script language="JavaScript" src="./app.js"></script>
+    </body>
+</html>

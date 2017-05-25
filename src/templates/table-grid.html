@@ -1,0 +1,44 @@
+<!--Block with breadcrumb-->
+<header-grid lines="$parent.lines" save="false"></header-grid>
+<div ng-if="searchOptions != undefined">
+    <!--Block with pagination, search and add button-->    
+    <paginate-search-grid filter="$parent.filter" limit="limit" with-search="searchOptions.withSearch" with-create="searchOptions.withCreate" module-name="searchOptions.moduleName"></paginate-search-grid>
+</div>
+
+<!--Block with table template default-->
+<table class="table table-striped table-bordered table-hover content table-responsive">
+    <thead>
+        <tr>
+            <th ng-repeat="f in fields">{{f.label}}</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr dir-paginate="model in model | orderBy: order | filter: filter | itemsPerPage: limit" current-page="currentPage">
+            <td ng-repeat="f in fields">
+                <div ng-if="f.type=='simple'" ng-bind="renderLine(model, f)"></div>
+
+                <div ng-if="f.type=='filter'">
+                    <span ng-bind="addFilter(model, f, f.filter)"></span>
+                </div>
+
+                <div ng-if="f.type=='link' && f.url !='undefined'">
+                    <a ng-href="{{f.url=='view' ? '/#!/'+moduleName+'/'+model._id : f.url }}" ng-bind="renderLine(model, f)"></a>
+                </div>
+
+                <div ng-if="f.type=='image'">
+                    <image-s3 url="renderLine(model, f)" path="f.pathImage" with-user-id="{{f.userId}}" alt="imagem" class="image-thumb-4"></image-s3>
+                </div>
+
+                <div ng-if="f.type=='template'">
+                    <label-item has-icon="f.icon" item="{{f.column}}" index="model[f.column]"></label-item>
+                </div>
+            </td>
+            <td align="center">
+                <div ng-if="!isOwner">
+                    <table-action module="{id: model._id, name: moduleName, actions: actions}"></table-action>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

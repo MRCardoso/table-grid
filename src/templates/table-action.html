@@ -1,0 +1,14 @@
+<div ng-if="module.actions.length>0">
+    <a ng-if="module.actions.indexOf('view') != -1" ng-href="{{createUrl('view')}}" class="no-underline label label-warning"
+       tooltip="Visualizar" tooltip-placement="top" tooltip-trigger="mouseenter">
+        <span class="glyphicon glyphicon-eye-open"></span>
+    </a>
+    <a ng-if="module.actions.indexOf('edit') != -1" ng-href="{{createUrl('edit')}}" class="no-underline label label-primary"
+       tooltip="Editar" tooltip-placement="top" tooltip-trigger="mouseenter">
+        <span class="glyphicon glyphicon-edit"></span>
+    </a>
+    <a ng-if="module.actions.indexOf('remove') != -1" ng-href role="button" ng-click="delete(module.id)" class="no-underline label label-danger"
+       tooltip="Remover" tooltip-placement="top" tooltip-trigger="mouseenter">
+        <span class="glyphicon glyphicon-remove"></span>
+    </a>
+</div>
