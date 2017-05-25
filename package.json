@@ -1,6 +1,6 @@
 {
   "name": "table-grid",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "index.ejs",
   "dependencies": {
     "ejs": "^2.5.6",
