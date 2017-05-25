@@ -154,7 +154,6 @@ angular.module('table.grid',[
             controller: ["$scope", "$location", function($scope, $location)
             {
                 $scope.lines = $scope.lines || [];
-                console.log($scope.lines);
 
                 $scope.lines.reverse();
                 $scope.lines[0].path = false;

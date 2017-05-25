@@ -4,7 +4,14 @@
     "MRCardoso <cardozinhos.mrc@gmail.com>"
   ],
   "description": "create the base structure of the a table",
-  "main": "",
+  "main": [
+      "src/table-grid.js",
+      "src/table-grid.css"
+  ],
+  "keywords": [
+    "table",
+    "table-grid"
+  ],
   "license": "MIT",
   "homepage": "",
   "ignore": [

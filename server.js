@@ -3,7 +3,7 @@ var app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', './');
-app.use('/src', express.static('./src'));
+app.use('/src', express.static('./dist'));
 app.use(express.static('./public'));
 app.get('/', function (req, res) {
   res.render('index');
