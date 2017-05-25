@@ -47,14 +47,15 @@ Html code to add in the view:
 Script code to add in the Controller:
 
 ```javascript
+// this variable will be responsable to create the breadcrumb
+$scope.lines = [{path: 'role', label: 'Role'}];
+
 $scope.limit = 10;
-$scope.module = 'test';
+$scope.module = 'Role';
 $scope.actions = ['edit', 'remove'];
 $scope.showCreate = true;
 $scope.showSearch = true;
 $scope.model = [];
-// this variable will be responsable to create the breadcrumb
-$scope.lines = [{path: 'role', label: 'Role'}];
 
 for(let i = 0; i<50; i++)
 {
