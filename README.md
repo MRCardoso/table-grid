@@ -1,4 +1,4 @@
-## Angular directive for create table grid
+# Angular Table grid
 
 Run the example, in the terminal, open the browser in 'http://localhost:3000/'
 
@@ -13,10 +13,10 @@ $ bower install mrc-table-grid --save
 
 Add the css and javascript files
 
-`````
+```javascript
 <link rel="stylesheet" type="text/css" href="./bower_components/table-grid/dist/table-grid.css">
 <script language="JavaScript" src="./bower_components/table-grid/dist/table-grid.js"></script>
-`````
+```
 
 Add the dependence in the your module:
 
@@ -29,7 +29,7 @@ angular.module('app', ['ngRoute','ngResource','ui.bootstrap','angularUtils.direc
 
 Html code to add in the view:
 
-```
+```Html
 <table-grid 
      limit="limit"
      model="model"
@@ -46,7 +46,7 @@ Html code to add in the view:
 
 Script code to add in the Controller:
 
-```
+```javascript
 $scope.limit = 10;
 $scope.module = 'test';
 $scope.actions = ['edit', 'remove'];
@@ -65,3 +65,18 @@ for(let i = 0; i<50; i++)
     })
 }
 ```
+
+# arguments availables
+
+name    | value | Observation
+--------|------ | -----------
+model   | Array | Array with the data object with the records
+fields  | Array | Array with the list of the field, inner on 'model'
+actions | Array | Array of the availables grid options
+limit   | int   | the limitation of the itens by page
+filter  | string | the databing to filter the grid
+order   | string | The ordenation of the grid
+isOwner  | bool  | define when the 'actions' each line will be show:no implement
+showBreadcrumb | bool   | no implement
+moduleName     | string | The name of the current module
+searchOptions  | Array  | Array with the options sent to children directive(paginate-search)
