@@ -21,7 +21,7 @@ Add the css and javascript files
 Add the dependence in the your module:
 
 ```Javascript
-angular.module('app', ['ngRoute','ngResource','ui.bootstrap','angularUtils.directives.dirPagination', 'table.grid'])
+angular.module('app', ['table.grid'])
 ```
 
 
