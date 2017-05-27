@@ -77,3 +77,12 @@ isOwner  | bool  | define when the 'actions' each line will be show:no implement
 showBreadcrumb | bool   | no implement
 moduleName     | string | The name of the current module
 searchOptions  | Array  | Array with the options sent to children directive(paginate-search)
+
+## Changelog
+
+Please see the [releases page](https://github.com/MRCardoso/table-grid/releases) for details
+of each released version.
+
+## Licence
+
+MIT
