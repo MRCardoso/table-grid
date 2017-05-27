@@ -1,6 +1,8 @@
 # Angular Table grid
+
+**NOTE:** The angular version supperted currently is `angular-1.5.x`
  
-### Installation
+## Installation
 ````
 $ bower install mrc-table-grid --save
 ````
@@ -63,7 +65,7 @@ for(let i = 0; i<50; i++)
 }
 ```
 
-# Arguments Availables
+## Arguments Availables
 
 name    | value | Observation
 --------|------ | -----------
@@ -77,6 +79,7 @@ isOwner  | bool  | define when the 'actions' each line will be show:no implement
 showBreadcrumb | bool   | no implement
 moduleName     | string | The name of the current module
 searchOptions  | Array  | Array with the options sent to children directive(paginate-search)
+
 
 ## Changelog
 
