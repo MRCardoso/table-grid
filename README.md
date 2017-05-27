@@ -1,10 +1,4 @@
 # Angular Table grid
-
-Run the example, in the terminal, open the browser in 'http://localhost:3000/'
-
-````
-$ node server
-````
  
 ### Installation
 ````
@@ -21,7 +15,7 @@ Add the css and javascript files
 Add the dependence in the your module:
 
 ```Javascript
-angular.module('app', ['ngRoute','ngResource','ui.bootstrap','angularUtils.directives.dirPagination', 'table.grid'])
+angular.module('app', ['table.grid'])
 ```
 
 
