@@ -3,10 +3,10 @@
   "authors": [
     "MRCardoso <cardozinhos.mrc@gmail.com>"
   ],
-  "description": "create the base structure of the a table",
+  "description": "create the base structure of the a table, with search and pagination",
   "main": [
-      "src/table-grid.js",
-      "src/table-grid.css"
+      "dist/table-grid.min.js",
+      "dist/table-grid.min.css"
   ],
   "keywords": [
     "table",
@@ -21,9 +21,13 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "src/bower_components",
+    "src",
+    "public",
     "test",
-    "tests"
+    "tests",
+    "package.json",
+    "server.js",
+    "index.ejs"
   ],
   "dependencies": {
     "angular": "1.5.x",
