@@ -16,6 +16,14 @@
                         </select>                        
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-12">
+                        <input type="checkbox" name="breadcrumb" ng-model="breadcrumb" value="1">
+                        Show Breadcrumb
+                    </label>
+                </div>
+
                 <div class="form-group">
                     <label class="control-label col-md-12">
                         <input type="checkbox" name="showSearch" ng-model="showSearch" value="1">
@@ -54,11 +62,15 @@
         limit="limitation"
         model="model"
         actions="actions"
+        show-breadcrumb="breadcrumb"
         module-name="moduleName"
         search-options="{withSearch: showSearch, withCreate: showCreate, moduleName: moduleName}"
         fields="[
             {label: 'Nome', column: 'name', type:'simple'}, 
             {label: 'Tipo', column: 'type', type:'simple'}, 
+            {label: 'Link', column: 'name', url: 'https://google.com/', type:'link'}, 
+            {label: 'File', column: 'file', type:'simple'}, 
+            {label: 'User', column: 'name', fk: 'userId', type:'simple'}, 
             {label: 'Status', column: 'status', type:'template'}, 
             {label: 'Criação', column: 'created', filter: ['date', 'dd/MM/yyyy'], type:'filter'}, 
         ]">

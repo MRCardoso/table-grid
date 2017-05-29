@@ -1,11 +1,9 @@
-<div ng-class="{'border content content-large': save == true}">
-    <ul class="breadcrumb">
-        <li><a ng-href="/#!/">Home</a></li>
-        <li ng-repeat="row in lines">
-            <a ng-href="/#!/{{row.path}}" data-ng-show="row.path !== false">
-                <span data-ng-bind="row.label"></span>
-            </a>
-            <span data-ng-bind="row.label" data-ng-show="row.path===false"></span>
-        </li>
-    </ul>
-</div>
+<ul class="breadcrumb">
+    <li><a ng-href="/#!/">Home</a></li>
+    <li ng-repeat="row in lines">
+        <a ng-href="/#!/{{row.path}}" data-ng-show="row.path !== false">
+            <span data-ng-bind="row.label"></span>
+        </a>
+        <span data-ng-bind="row.label" data-ng-show="row.path===false"></span>
+    </li>
+</ul>

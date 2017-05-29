@@ -4,6 +4,7 @@ angular.module("app.controller",[])
     .controller('TableController', ['$scope', function ($scope)
     {
         $scope.searcher = '';
+        $scope.breadcrumb=false;
         $scope.moduleName = 'Default';
         $scope.showCreate = true;
         $scope.limitation = 10;
@@ -21,7 +22,11 @@ angular.module("app.controller",[])
                 $scope.actions.splice(index,1);
             else
                 $scope.actions.push(action);
-        };        
+        };
+
+        $scope.$root.delete = function(id){
+            console.log(id);
+        };
         
         var words = 'a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z';
 
@@ -41,6 +46,7 @@ angular.module("app.controller",[])
                 _id: i,
                 name: word.join(''),
                 type: '1',
+                userId: {_id: i+10, name: 'user name' +i},
                 status: Math.floor(Math.random() * 2 + 0), // `${i%2==0?1:0}`,
                 created: date
             })

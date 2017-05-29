@@ -9,7 +9,7 @@ angular.module("tg", [
             angular.extend(tableConfig, {
                 enableButtons: false,
                 appLabels: { "status": {
-                    "0": { "name": "Inativo", "class": "default", "icon": "ban-circle" },
+                    "0": { "name": "Inativo", "class": "default"},
                     "1": { "name": "Ativo", "class": "success", "icon": "ok-circle"}
                 }}
             });

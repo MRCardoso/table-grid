@@ -1,5 +1,5 @@
 <!--Block with breadcrumb-->
-<header-grid lines="$parent.lines" save="false"></header-grid>
+<header-grid ng-if="showBreadcrumb==true" lines="$parent.lines"></header-grid>
 <div ng-if="searchOptions != undefined">
     <!--Block with pagination, search and add button-->    
     <paginate-search-grid filter="$parent.filter" limit="limit" with-search="searchOptions.withSearch" with-create="searchOptions.withCreate" module-name="searchOptions.moduleName"></paginate-search-grid>
@@ -27,7 +27,7 @@
                 </div>
 
                 <div ng-if="f.type=='image'">
-                    <image-s3 url="renderLine(model, f)" path="f.pathImage" with-user-id="{{f.userId}}" alt="imagem" class="image-thumb-4"></image-s3>
+                    <!---image-s3 url="renderLine(model, f)" path="f.pathImage" with-user-id="{{f.userId}}" alt="imagem" class="image-thumb-4"></image-s3-->
                 </div>
 
                 <div ng-if="f.type=='template'">

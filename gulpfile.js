@@ -16,7 +16,7 @@ var gulp = require('gulp'),
 | --------------------------------------------------------------------
 */
 gulp.task('scripts-prod', ['template'], function() {
-  return gulp.src(['src/js/table-grid.js', 'build/table-grid.tpl.js'])
+  return gulp.src(['src/js/table-grid.js', 'dist/table-grid.tpl.js'])
     .pipe(concat('table-grid.tpl.js'))
     .pipe(rename('table-grid.js'))
     .pipe(gulp.dest('dist'))
