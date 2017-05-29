@@ -101,7 +101,7 @@ for(let i = 0; i<50; i++)
 
 
 ## header-grid
-* **lines: ** the properties for render a breadcrumb
+* **lines:** the properties for render a breadcrumb
   * **path:** string|bool, the action of the link, local url, when is false olny render the 'label'
   * **label:** string, the name of the current breadcrumb
   
