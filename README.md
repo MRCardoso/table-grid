@@ -65,24 +65,11 @@ for(let i = 0; i<50; i++)
 }
 ```
 
-## Arguments Availables
-
-name    | value | Observation
---------|------ | -----------
-model   | Array | Array with the data object with the records
-fields  | Array | Array with the list of the field, inner on 'model'
-actions | Array | Array of the availables grid options
-limit   | int   | the limitation of the itens by page
-filter  | string | the databing to filter the grid
-order   | string | The ordenation of the grid
-isOwner  | bool  | define when the 'actions' each line will be show:no implement
-showBreadcrumb | bool   | no implement
-moduleName     | string | The name of the current module
-searchOptions  | Array  | Array with the options sent to children directive(paginate-search)
-
+# Directives API
 
 ## table-grid
 
+* **model:** Array with the data object with the records
 * **fields** The availables properties are:
   * **label:** the string with text of the column
   * **column:** the property name of the lines in the 'model' to be rendered
@@ -96,6 +83,37 @@ searchOptions  | Array  | Array with the options sent to children directive(pagi
   * **icon:** used together 'type="template"', Show or hide the icon of the label directive(label-item)
   * **fk:** The object of the foreign key, this case the property 'column' get the value inner this object
   * **filter:** used together 'type="filter"', an array the first is the 'filter name', the second is the 'value for the filter'
+* **actions:** Array of the availables grid options
+* **limit:** the limitation of the itens by page
+* **filter:** the databing to filter the grid
+* **order:** The ordenation of the grid
+* **isOwner:** define when the 'actions' each line will be show:no implement
+* **showBreadcrumb:** no implement
+* **moduleName:** The name of the current module
+* **searchOptions:** Array with the options sent to children directive(paginate-search)
+
+## paginate-search-grid
+* **moduleName:** The name of the current module(interface) 
+* **limit:** The limitation of the itens by page at the grid, default: 5
+* **filter:** The databing with the filter for grid 
+* **withCreate:** show and hide the 'new' button, default: true
+* **withSearch:** show and hide the 'search' input, default: true
+
+
+## header-grid
+* **lines: ** the properties for render a breadcrumb
+  * **path:** string|bool, the action of the link, local url, when is false olny render the 'label'
+  * **label:** string, the name of the current breadcrumb
+  
+  
+## label-item
+* **hasIcon:** Show or hide the icon of the label, default: true
+* **index:** The value of the current line, for get the text in appLabels according your value
+* **item:** The property in appLabels
+* **addIndex:** Use when the value in appLabels is an array
+
+## table-action
+* **module:** The name of the current module(interface)
 
 
 ## Changelog
