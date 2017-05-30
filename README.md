@@ -51,18 +51,7 @@ $scope.module = 'Role';
 $scope.actions = ['edit', 'remove'];
 $scope.showCreate = true;
 $scope.showSearch = true;
-$scope.model = [];
-
-for(let i = 0; i<50; i++)
-{
-    $scope.model.push({
-        _id: i,
-        name: `Example ${i}`,
-        type: '1',
-        status: `${i%2==0?1:0}`,
-        created: new Date()
-    })
-}
+$scope.model = [{ _id: 1, name: 'Example 1', type: '1', status: 1, created: new Date() }];
 ```
 
 # Directives API
