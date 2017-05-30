@@ -66,20 +66,21 @@ for(let i = 0; i<50; i++)
 ```
 
 # Directives API
-
+    Are five direcive, which together create a table of data, with search, paginations, and default actions for each line 'view', 'edit', 'delete',  in the angular 1 pattern. The directive '**table-grid**' is the main, but the other directives can be use devided when required.
+    
 ## table-grid
 
-* **model:** Array with the data object with the records
+* **model:** Array with the data object with the records(the pattern for id in each line, is the same that mongodb '_id')
 * **fields** The availables properties are:
   * **label:** the string with text of the column
-  * **column:** the property name of the lines in the 'model' to be rendered
-  * **type:** the type of template to be rendered in the line, the options are:
+  * **column:** the string with property name of the lines in the 'model' to be rendered
+  * **type:** The string with kind of template to be render the line, the options are:
     * **simple:** Render a simple databind
     * **template:** Render a template with other directive(label-item)
     * **link:** Render a simple databind with a link href
     * **filter:** Render a simple databind with angular filter
     * **image:**: Render an image, No implement
-  * **url:** used together 'type="link"', Create a link, when your value is 'view' create a local url to view action of the current module
+  * **url:** used together 'type="link"', when is '**view**', the url is relative('/#!/'+moduleName+'/'+line._id)
   * **icon:** used together 'type="template"', Show or hide the icon of the label directive(label-item)
   * **fk:** The object of the foreign key, this case the property 'column' get the value inner this object
   * **filter:** used together 'type="filter"', an array the first is the 'filter name', the second is the 'value for the filter'
