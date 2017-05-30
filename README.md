@@ -31,7 +31,7 @@ Html code to add in the view:
      model="model"
      actions="actions"
      module-name="module"
-     search-options="{withSearch: withSearch, withCreate: withSearch, moduleName: module}"
+     search-options="{withSearch: withSearch, withCreate: withSearch}"
      fields="[
          {label: 'Nome', column: 'name', type:'simple'},
          {label: 'Status', column: 'status', type:'template'}, 
