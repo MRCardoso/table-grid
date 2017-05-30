@@ -98,14 +98,23 @@ angular
                 | ----------------------------------------------------------------
                 | object, the object with the options of the extra options sent to inner directive(paginateSearchGrid)
                 | ----------------------------------------------------------------
+                | will be replaced by two properties
+                | withSearch: bool
+                | withCreate: bool
                 |*/
-                searchOptions: '=searchOptions',
+                searchOptions: '=?searchOptions',
                 /*
                 | ----------------------------------------------------------------
                 | string, Set the ordenation of the grid
                 | ----------------------------------------------------------------
                 |*/
                 order: '@order'
+                /*
+                | ----------------------------------------------------------------
+                | Array, the array with object with the breadcrumb,  equal to the directive(headerGrid)
+                | ----------------------------------------------------------------
+                | lines: '=?lines'
+                */
             },            
             controller: ["$scope", "$location", "$filter",'tableConfig', /*"Authentication",*/ 
             function($scope, $location, $filter, tableConfig/*, Authentication*/)
@@ -186,8 +195,8 @@ angular
             {
                 $scope.totalItems = 0;
                 $scope.currentPage = 1;
-                $scope.withSearch = $scope.withSearch || true;
-                $scope.withCreate = $scope.withCreate || true;
+                $scope.withSearch = $scope.withSearch != undefined ? $scope.withSearch : true;
+                $scope.withCreate = $scope.withCreate != undefined ? $scope.withCreate : true;
                 
                 $scope.limit = $scope.limit || tableConfig.defaultLimit;
                 $scope.filter = $scope.filter || tableConfig.defaultFilter;
