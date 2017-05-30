@@ -1,9 +1,8 @@
 <!--Block with breadcrumb-->
-<header-grid ng-if="showBreadcrumb==true" lines="$parent.lines"></header-grid>
-<div ng-if="searchOptions != undefined">
-    <!--Block with pagination, search and add button-->    
-    <paginate-search-grid filter="$parent.filter" limit="limit" with-search="searchOptions.withSearch" with-create="searchOptions.withCreate" module-name="moduleName"></paginate-search-grid>
-</div>
+<header-grid ng-if="showBreadcrumb==true" lines="$parent.$parent.lines"></header-grid>
+
+<!--Block with pagination, search and add button-->
+<paginate-search-grid filter="filter" limit="limit" with-search="searchOptions.withSearch" with-create="searchOptions.withCreate" module-name="moduleName"></paginate-search-grid>
 
 <!--Block with table template default-->
 <table class="table table-striped table-bordered table-hover content table-responsive">
