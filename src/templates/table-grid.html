@@ -22,7 +22,7 @@
                 </div>
 
                 <div ng-if="f.type=='link' && f.url !='undefined'">
-                    <a ng-href="{{f.url=='view' ? '/#!/'+moduleName+'/'+model._id : f.url }}" ng-bind="renderLine(model, f)"></a>
+                    <a ng-href="{{f.url=='view' ? createUrl(moduleName, model[primaryKey]) : f.url }}" ng-bind="renderLine(model, f)"></a>
                 </div>
 
                 <div ng-if="f.type=='image'">
@@ -35,7 +35,7 @@
             </td>
             <td align="center">
                 <div ng-if="!isOwner">
-                    <table-action module="{id: model._id, name: moduleName, actions: actions}"></table-action>
+                    <table-action module="{id: model[primaryKey], name: moduleName, actions: actions}"></table-action>
                 </div>
             </td>
         </tr>

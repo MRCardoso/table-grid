@@ -93,7 +93,7 @@ angular
                 | string, define the owner of the records to set permission to view the 'actions'
                 | ----------------------------------------------------------------
                 |*/
-                isOwner: '@isOwner',
+                isOwner: '=?isOwner',
                 /*
                 | ----------------------------------------------------------------
                 | object, the object with the options of the extra options sent to inner directive(paginateSearchGrid)
@@ -108,13 +108,19 @@ angular
                 | string, Set the ordenation of the grid
                 | ----------------------------------------------------------------
                 |*/
-                order: '@order'
+                order: '@order',
+                /*
+                | ----------------------------------------------------------------
+                | string, Set de primary key for each line
+                | ----------------------------------------------------------------
+                |*/
+                primaryKey: '@primaryKey',
                 /*
                 | ----------------------------------------------------------------
                 | Array, the array with object with the breadcrumb,  equal to the directive(headerGrid)
                 | ----------------------------------------------------------------
                 | lines: '=?lines'
-                */
+                */                
             },            
             controller: ["$scope", "$location", "$filter",'tableConfig', /*"Authentication",*/ 
             function($scope, $location, $filter, tableConfig/*, Authentication*/)
@@ -134,6 +140,7 @@ angular
                 $scope.limit = $scope.limit || tableConfig.defaultLimit;
                 $scope.filter = $scope.filter || tableConfig.defaultFilter;
                 $scope.actions = $scope.actions || tableConfig.defaultActions;
+                $scope.primaryKey = $scope.primaryKey || '_id';
 
                 $scope.addFilter = function(model, object, filters){
                     if( filters.length == 2 )
@@ -148,9 +155,18 @@ angular
                             return '-';
                     }
                     else{
-                        return model[object.column] || '-';
+                        return model[object.column] == undefined ? '-' : model[object.column];
                     }
                 };
+
+                $scope.createUrl = function(path, param)
+                {
+                    if( param != undefined)
+                    {
+                        return '/#!/'+path+'/'+param;
+                    }
+                    return '/#!/'+path+'/';
+                }
             }],            
         }
     })    

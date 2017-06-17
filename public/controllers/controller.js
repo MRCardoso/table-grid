@@ -45,7 +45,7 @@ angular.module("app.controller",[])
             $scope.model.push({
                 _id: i,
                 name: word.join(''),
-                type: '1',
+                type: i,
                 userId: {_id: i+10, name: 'user name' +i},
                 status: Math.floor(Math.random() * 2 + 0), // `${i%2==0?1:0}`,
                 created: date
