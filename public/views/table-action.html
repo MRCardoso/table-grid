@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Custom configurations
+    </div>
+    <table class="table table-hover table-bordered table-condensed">
+        <tr>
+            <th>
+                <label class="control-label">
+                    <input type="checkbox" checked="true" name="action[view]" ng-click="addAction('view')">
+                    view
+                </label>
+
+                <label class="control-label">
+                    <input type="checkbox" checked="true" name="action[edit]" ng-click="addAction('edit')">
+                    Edit
+                </label>
+
+                <label class="control-label">
+                    <input type="checkbox" checked="true" name="action[remove]" ng-click="addAction('remove')">
+                    Delete
+                </label>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <table-action id="1" name="moduleName" actions="actions" custom-action="actionCustom"></table-action>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -65,6 +65,7 @@
                     | icon: with the property 'type="template"', show or hide the icon of the label
                     | fk: The object of the foreign key, this case the property 'column' get the value inner this object
                     | filter: Render a line with angular.filter, An array with two options, the first is the 'filter name', the second is the 'value for the filter'
+                    | sort: Show or hide the option to ordenation ASC DESC the column
                     |*/ 
                     fields: '=fields',
                     /*
@@ -94,7 +95,7 @@
                     moduleName: '=?moduleName',
                     /*
                     | ----------------------------------------------------------------
-                    | bool, show or hide the header Breadcrumb, default: true
+                    | bool, Show or hide the header Breadcrumb, default: true
                     | ----------------------------------------------------------------
                     |*/
                     showBreadcrumb: '=?showBreadcrumb',
