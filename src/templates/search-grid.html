@@ -1,30 +1,46 @@
-<div class="template-head">
+<div ng-class="{'template-head': pagPosition == 'top', 'template-foot': pagPosition == 'bottom'}">
     <div class="col-md-4">
         <div ng-show="totalItems > limit">
-            <div class="text-right">
+            <div class="text-center">
                 <dir-pagination-controls max-size="4" boundary-links="true" on-page-change="changePage(newPageNumber)"></dir-pagination-controls>
             </div>
         </div>
-        <div ng-if="totalItems == 0 && (filter != null && filter != '')">
+        <div ng-show="totalItems == 0 && (filter != null && filter != '')">
             <span class="glyphicon glyphicon-info-sign"></span>
+            {{pagPosition}}
             Nenhum resultado encontrado para <strong>'{{filter}}'</strong>
         </div>
     </div>
+    
     <div class="col-md-8" ng-if="withSearch">
         <div class="input-group">    
-            <div class="input-group-btn">
+            <div class="input-group-btn" ng-if="changeLimit==false">
                 <a ng-href class="btn btn-default" style="cursor: move">
                     <i ng-bind="currentPage+'/'+(totalItems/limit | round)+' - '+totalItems"></i>
                 </a>
             </div>
+            <div class="input-group-btn" ng-if="changeLimit==true">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i ng-bind="currentPage+'/'+(totalItems/limit | round)+' - '+totalItems"></i>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="item in limits" ng-class="{'active': item==limit}">
+                            <a role="button" ng-click="updateLimit(item)">{{item}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <input type="text" ng-model="$parent.filter" ng-change="listen()" class="form-control" placeholder="procure por um registro...">
             <div class="input-group-btn" ng-show="withCreate==true">
-                <a ng-href="{{createUrl()}}" class="btn btn-primary">
+                <a ng-href="{{$root.createUrl(moduleName, null, 'create')}}" class="btn btn-primary">
                     <span class="glyphicon glyphicon-plus"></span>
                     Novo
                 </a>
             </div>    
         </div>
     </div>
+    
     <div class="clear"></div>
 </div>

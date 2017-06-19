@@ -16,7 +16,7 @@ var gulp = require('gulp'),
 | --------------------------------------------------------------------
 */
 gulp.task('scripts-prod', ['template'], function() {
-  return gulp.src(['src/js/table-grid.js', 'dist/table-grid.tpl.js'])
+  return gulp.src(['src/js/table-grid.js', 'src/**/*.js','dist/table-grid.tpl.js'])
     .pipe(concat('table-grid.tpl.js'))
     .pipe(rename('table-grid.js'))
     .pipe(gulp.dest('dist'))
@@ -37,7 +37,8 @@ gulp.task('template', function() {
 | --------------------------------------------------------------------
 */
 gulp.task('css-prod', function(){
-    return gulp.src('src/css/table-grid.css')
+    return gulp.src(['src/css/table-grid.css', 'src/**/*.css'])
+        .pipe(concat('table-grid.css'))
         .pipe(gulp.dest('dist'))
         .pipe(minifyCss())
         .pipe(rename('table-grid.min.css'))

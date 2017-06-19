@@ -7,14 +7,10 @@
         <div class="panel-body">
             <div class="form-inline">
                 <div class="form-group">
-                    <label class="control-label col-md-6">
-                        Limitation
+                    <label class="control-label col-md-12">
+                        <input type="checkbox" name="changeLimit" ng-model="changeLimit" value="1">
+                        Change limitation
                     </label>
-                    <div class="col-md-4">
-                        <select class="form-control" ng-model="limitation">
-                            <option ng-repeat="item in limits" ng-value="{{item}}">{{item}}</option>
-                        </select>                        
-                    </div>
                 </div>
 
                 <div class="form-group">
@@ -39,6 +35,13 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="control-label col-md-12">
+                        <input type="checkbox" name="showActions" ng-model="showActions" value="1">
+                        Show Actions
+                    </label>
+                </div>
+
+                <div class="form-group">
                     <label class="control-label">
                         <input type="checkbox" checked="true" name="action[view]" ng-click="addAction('view')">
                         view
@@ -57,21 +60,26 @@
             </div>
         </div>
     </div>
-    
     <table-grid 
         limit="limitation"
         model="model"
         actions="actions"
+        custom-action="actionCustom"
         show-breadcrumb="breadcrumb"
         module-name="moduleName"
-        search-options="{withSearch: showSearch, withCreate: showCreate}"
+        with-search="showSearch"
+        with-create="showCreate"
+        with-actions="showActions"
+        change-limit="changeLimit"
+        lines="lines"
+        order="name"
         fields="[
-            {label: 'Nome', column: 'name', type:'simple'}, 
-            {label: 'Tipo', column: 'type', type:'simple'}, 
-            {label: 'Link', column: 'name', url: 'https://google.com/', type:'link'}, 
-            {label: 'Link', column: 'name', url: 'view', type:'link'}, 
-            {label: 'File', column: 'file', type:'simple'}, 
-            {label: 'User', column: 'name', fk: 'userId', type:'simple'}, 
+            {label: 'Nome', column: 'name', type:'simple',sort:true}, 
+            {label: 'Tipo', column: 'type', type:'simple', sort:true}, 
+            {label: 'Link', column: 'name', url: 'https://google.com/', type:'link', sort:true }, 
+            {label: 'Link', column: 'name', url: 'view', type:'link', sort:true }, 
+            {label: 'File', column: 'file', type:'simple',sort:false}, 
+            {label: 'User', column: 'name', fk: 'userId', type:'simple',sort:true}, 
             {label: 'Status', column: 'status', type:'template'}, 
             {label: 'Criação', column: 'created', filter: ['date', 'dd/MM/yyyy'], type:'filter'}, 
         ]">

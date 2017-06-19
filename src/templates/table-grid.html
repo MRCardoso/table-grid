@@ -1,28 +1,35 @@
 <!--Block with breadcrumb-->
-<header-grid ng-if="showBreadcrumb==true" lines="$parent.$parent.lines"></header-grid>
+<header-grid ng-if="showBreadcrumb==true" lines="lines"></header-grid>
 
 <!--Block with pagination, search and add button-->
-<paginate-search-grid filter="filter" limit="limit" with-search="searchOptions.withSearch" with-create="searchOptions.withCreate" module-name="moduleName"></paginate-search-grid>
+<paginate-search-grid filter="filter" limit="limit" with-search="withSearch" with-create="withCreate" change-limit="changeLimit" module-name="moduleName"></paginate-search-grid>
 
 <!--Block with table template default-->
 <table class="table table-striped table-bordered table-hover content table-responsive">
     <thead>
         <tr>
-            <th ng-repeat="f in fields">{{f.label}}</th>
-            <th>Ações</th>
+            <th ng-repeat="f in fields">
+                <a role="button" ng-click="reOrder(f)" class="dark-link" ng-if="f.sort != undefined && f.sort==true">
+                    <i class="glyphicon glyphicon-triangle-{{ort[f.fk!=undefined?f.fk+'.'+f.column:f.column] == '-' ? 'top' : 'bottom'}}"></i>
+                </a>
+                {{f.label}}
+            </th>
+            <th ng-if="withActions">Ações</th>
         </tr>
     </thead>
     <tbody>
         <tr dir-paginate="model in model | orderBy: order | filter: filter | itemsPerPage: limit" current-page="currentPage">
-            <td ng-repeat="f in fields">
-                <div ng-if="f.type=='simple'" ng-bind="renderLine(model, f)"></div>
+            <td ng-repeat="f in fields">                
+                <div ng-if="f.type=='simple'" ng-bind="renderLine(model, f, true)"
+                    uib-tooltip="{{renderLine(model, f, false)}}" tooltip-placement="top" tooltip-trigger="mouseenter"></div>
 
                 <div ng-if="f.type=='filter'">
                     <span ng-bind="addFilter(model, f, f.filter)"></span>
                 </div>
 
                 <div ng-if="f.type=='link' && f.url !='undefined'">
-                    <a ng-href="{{f.url=='view' ? createUrl(moduleName, model[primaryKey]) : f.url }}" ng-bind="renderLine(model, f)"></a>
+                    <a ng-href="{{f.url=='view' ? createUrl(moduleName, model[primaryKey]) : f.url }}" ng-bind="renderLine(model, f, true)"
+                    uib-tooltip="{{renderLine(model, f, false)}}" tooltip-placement="top" tooltip-trigger="mouseenter"></a>
                 </div>
 
                 <div ng-if="f.type=='image'">
@@ -33,11 +40,10 @@
                     <label-item has-icon="f.icon" item="{{f.column}}" index="model[f.column]"></label-item>
                 </div>
             </td>
-            <td align="center">
-                <div ng-if="!isOwner">
-                    <table-action module="{id: model[primaryKey], name: moduleName, actions: actions}"></table-action>
-                </div>
+            <td ng-if="withActions" style="text-align: center; padding-left: 0.4%; padding-right: 0.4%;">
+                <table-action id="model[primaryKey]" name="moduleName" actions="actions" custom-action="customAction"></table-action>
             </td>
         </tr>
     </tbody>
 </table>
+<paginate-search-grid filter="filter" limit="limit" with-search="false" with-create="false" module-name="moduleName" pag-position="bottom"></paginate-search-grid>

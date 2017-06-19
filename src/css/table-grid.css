@@ -7,8 +7,11 @@
 .clear{
     clear: both
 }
+.change-limit{
+    width: 30px !important;
+}
 .template-foot,.template-head{
-    padding: 0.6% 3%;
+    padding: 0.6% 0 !important; 
     background: #eee;
     border:1px solid #d2d2d2;
 }
@@ -62,4 +65,11 @@
 .button-group input[type=button],
 .button-group input[type=submit]{
     border-radius: 0;
+}
+.dark-link{
+    text-decoration: none !important;
+    color: #4D4F4D !important;
+}
+.dark-link:hover{
+    color: #9D9F9D !important;
 }

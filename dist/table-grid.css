@@ -7,8 +7,11 @@
 .clear{
     clear: both
 }
+.change-limit{
+    width: 30px !important;
+}
 .template-foot,.template-head{
-    padding: 0.6% 3%;
+    padding: 0.6% 0 !important; 
     background: #eee;
     border:1px solid #d2d2d2;
 }
@@ -62,4 +65,48 @@
 .button-group input[type=button],
 .button-group input[type=submit]{
     border-radius: 0;
+}
+.dark-link{
+    text-decoration: none !important;
+    color: #4D4F4D !important;
+}
+.dark-link:hover{
+    color: #9D9F9D !important;
+}
+@media screen and (max-width: 991px)
+{
+    .col-md-4, .col-md-12{
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .table-responsive {
+        display: block;
+        position: relative;
+        width: 100%;
+    }
+
+    .table-responsive thead,
+    .table-responsive tbody,
+    .table-responsive th,
+    .table-responsive td,
+    .table-responsive tr {
+        display: block;
+    }
+    .table-responsive td,
+    .table-responsive th {
+        height: 35px;
+    }
+    .table-responsive thead {
+        float: left;
+    }
+    .table-responsive tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+    }
+    .table-responsive tbody tr {
+        display : inline-block;
+    }
 }

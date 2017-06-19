@@ -6,11 +6,13 @@ angular.module("app.controller",[])
         $scope.searcher = '';
         $scope.breadcrumb=false;
         $scope.moduleName = 'Default';
+        $scope.hasIcon = true;
         $scope.showCreate = true;
         $scope.limitation = 10;
         $scope.actions = ['view', 'edit', 'remove'];
         $scope.lines = [
-            {path: '', label: 'Default'}
+            {path: '', label: 'Default'},
+            {path: 'in', label: 'data'}
         ];
         $scope.showSearch = true;
         $scope.limits = [5,10,15,20,25,30,35,40,45,50];
@@ -30,7 +32,7 @@ angular.module("app.controller",[])
         
         var words = 'a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z';
 
-        for(let i = 0; i<50; i++)
+        for(let i = 0; i<2000; i++)
         {
             let word = [];
             let wdList = words.split('|');
@@ -51,4 +53,9 @@ angular.module("app.controller",[])
                 created: date
             })
         }
+
+        $scope.actionCustom = [
+            {"name": "config", "label": "Configuração", "label-ico":"info", "ico": "cog"},
+            {"name": "photo", "label": "Fotos", "label-ico":"default", "ico": "picture"},
+        ];
     }]);
