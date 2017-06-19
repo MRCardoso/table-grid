@@ -55,15 +55,26 @@ Html code to add in the view:
 Script code to add in the Controller:
 
 ```javascript
-// this variable will be responsable to create the breadcrumb
-$scope.lines = [{path: 'role', label: 'Role'}];
-
-$scope.limit = 10;
-$scope.module = 'Role';
-$scope.actions = ['edit', 'remove'];
+$scope.moduleName = 'Users';
+$scope.hasIcon = true;
+$scope.changeLimit=false;
+$scope.breadcrumb=false;
 $scope.showCreate = true;
 $scope.showSearch = true;
+$scope.limitation = 10;
+$scope.actions = ['view', 'edit', 'remove'];
 $scope.model = [{ _id: 1, name: 'Example 1', type: '1', status: 1, created: new Date() }];
+$scope.lines = [{path: 'users', label: 'Users'}];
+$scope.actionCustom = [
+    {"name": "config", "label": "Configuração", "label-ico":"info", "ico": "cog"},
+    {"name": "photo", "label": "Fotos", "label-ico":"default", "ico": "picture"},
+];
+
+// create your own method delete
+$scope.$root.delete = function(id)
+{
+    console.log(id);
+};
 ```
 
 # Directives API
