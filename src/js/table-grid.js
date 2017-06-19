@@ -162,8 +162,7 @@
                     */
                     customAction: "=?customAction",
                 },            
-                controller: ["$scope", "$location", "$filter",'tableConfig', 
-                function($scope, $location, $filter, tableConfig)
+                controller: ["$scope", "$location", "$filter",'tableConfig', function($scope, $location, $filter, tableConfig)
                 {
                     if($scope.model == undefined || $scope.fields == undefined)
                     {
@@ -340,7 +339,7 @@
                     |*/
                     lines: '=?lines'
                 },
-                controller: ["$scope", "$location", function($scope, $location)
+                controller: ["$scope", "$location", "tableConfig", function($scope, $location, tableConfig)
                 {
                     $scope.lines = $scope.lines || [];
                     

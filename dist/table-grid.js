@@ -65,6 +65,7 @@
                     | icon: with the property 'type="template"', show or hide the icon of the label
                     | fk: The object of the foreign key, this case the property 'column' get the value inner this object
                     | filter: Render a line with angular.filter, An array with two options, the first is the 'filter name', the second is the 'value for the filter'
+                    | sort: Show or hide the option to ordenation ASC DESC the column
                     |*/ 
                     fields: '=fields',
                     /*
@@ -94,7 +95,7 @@
                     moduleName: '=?moduleName',
                     /*
                     | ----------------------------------------------------------------
-                    | bool, show or hide the header Breadcrumb, default: true
+                    | bool, Show or hide the header Breadcrumb, default: true
                     | ----------------------------------------------------------------
                     |*/
                     showBreadcrumb: '=?showBreadcrumb',
@@ -124,19 +125,19 @@
                     orientation: '@orientation',
                     /*
                     | ----------------------------------------------------------------
-                    | bool, show the input with search in the grid
+                    | bool, Show or hide the field with search in the grid
                     | ----------------------------------------------------------------
                     |*/
                     withSearch: '=?withSearch',
                     /*
                     | ----------------------------------------------------------------
-                    | bool, show the button 'create' in the grid
+                    | bool, Show or hide the button 'create' in the grid
                     | ----------------------------------------------------------------
                     |*/
                     withCreate: '=?withCreate',
                     /*
                     | ----------------------------------------------------------------
-                    | bool, show the button 'create' in the grid
+                    | bool, Show or hide the column 'actions' on the grid
                     | ----------------------------------------------------------------
                     |*/
                     withActions: '=?withActions',
@@ -161,8 +162,7 @@
                     */
                     customAction: "=?customAction",
                 },            
-                controller: ["$scope", "$location", "$filter",'tableConfig', 
-                function($scope, $location, $filter, tableConfig)
+                controller: ["$scope", "$location", "$filter",'tableConfig', function($scope, $location, $filter, tableConfig)
                 {
                     if($scope.model == undefined || $scope.fields == undefined)
                     {
@@ -339,7 +339,7 @@
                     |*/
                     lines: '=?lines'
                 },
-                controller: ["$scope", "$location", function($scope, $location)
+                controller: ["$scope", "$location", "tableConfig", function($scope, $location, tableConfig)
                 {
                     $scope.lines = $scope.lines || [];
                     
@@ -410,13 +410,13 @@
                 scope: {
                     /*
                     | -------------------------------------------------------------------
-                    | string, Primary Key of the item
+                    | String, Primary Key of the item
                     | -------------------------------------------------------------------
                     */
                     id: '=?id',
                     /*
                     | -------------------------------------------------------------------
-                    | string, the name of the current module
+                    | String, the name of the current module
                     | -------------------------------------------------------------------
                     */
                     name: "=?name",
@@ -431,7 +431,7 @@
                     | Array, The action custom for the label-items
                     | -------------------------------------------------------------------
                     | name: The name of the action in request default(/{module}/{id}/{name}), 
-                    | labe: The title in the tooltip when on mouseover
+                    | label: The title in the tooltip when on mouseover
                     | label-ico: The class of the label bootstrap, pattern is here: 'label label-{label-ico}'
                     | ico: The class of the icon bootstrap, pattern is here: 'glyphicon glyphicon-{ico}'
                     */
