@@ -113,6 +113,7 @@ Are five direcive, which together create a table of data, with search, paginatio
 
 ## table-grid
 
+* **moduleName:** The name of the current module
 * **model:** The data object with the records(the pattern for id in each line, is the same that mongodb '_id')
 * **fields** The availables properties are:
   * **label:** The string with text of the column
@@ -128,22 +129,21 @@ Are five direcive, which together create a table of data, with search, paginatio
   * **icon:** used together 'type="template"', Show or hide the icon of the label directive(label-item)
   * **fk:** The object of the foreign key, this case the property 'column' get the value inner this object
   * **filter:** used together 'type="filter"', an array the first is the 'filter name', the second is the 'value for the filter'
-* **actions:** Actions availables grid options
-* **limit:** The limitation of the itens by page
-* **filter:** The databing to filter the grid
-* **order:** The ordenation of the grid
+* **limit:** (default: tableConfig.defaultLimit) The limitation of the itens by page
+* **filter:** (default: tableConfig.defaultFilter) The databing to filter the grid
+* **order:** (default: orientation+tableConfig.defaultPrimaryKey) The ordenation of the grid
+* **actions:** (default: tableConfig.defaultActions) Actions availables grid options
 * **isOwner:** Define when the 'actions' each line will be show:no implement
-* **showBreadcrumb:** Show or hide the header Breadcrumb, default: true
-* **moduleName:** The name of the current module
+* **showBreadcrumb:** (default: true) Show or hide the header Breadcrumb
 * *searchOptions: Array with the options sent to children directive(paginate-search)(depreciate)*
-* **withSearch:** Show or hide the field with search in the grid,(default true)
-* **withCreate:** Show or hide the button for create new item in the grid,(default true)
-* **primaryKey:** Define which field the primary key, (Default: '_id')
-* **orientation:** The ordenation default of the grid
-* **withActions:** Show or hide the column 'actions' on the grid
-* **changeLimit:** Add a dropdown with the custom limits (Default: false)
+* **withSearch:** (default true) Show or hide the field with search in the grid
+* **withCreate:** (default true) Show or hide the button for create new item in the grid
+* **primaryKey:** (default: tableConfig.defaultPrimaryKey) Define which field the primary key
+* **orientation:** (default: tableConfig.defaultOrientation) The ordenation default of the grid
+* **withActions:** (default: true) Show or hide the column 'actions' on the grid
+* **changeLimit:** (default: false) Add a dropdown with the custom limits
 * **lines:** The same that (header-grid)
-* **customAction:** Equal to the directive(table-action)
+* **customAction:** (default: []) Equal to the directive(table-action)
 
 ```Html
 <table-grid
@@ -169,11 +169,11 @@ Are five direcive, which together create a table of data, with search, paginatio
 
 ## paginate-search-grid
 * **moduleName:** The name of the current module(interface) 
-* **limit:** The limitation of the itens by page at the grid, default: 5
-* **filter:** The databing with the filter for grid 
-* **withCreate:** Show and hide the 'new' button, default: true
-* **withSearch:** Show and hide the 'search' input, default: true
-* **changeLimit:** Enable the dropdown with the list of limitation custom (Default: false)
+* **limit:** (default: tableConfig.defaultLimit) The limitation of the itens by page at the grid
+* **filter:** (default: tableConfig.defaultFilter) The databing with the filter for grid 
+* **withCreate:** (default: true) Show and hide the 'new' button
+* **withSearch:** (default: true) Show and hide the 'search' input
+* **changeLimit:** (default: false), Enable the dropdown with the list of limitation custom
 * *pagPosition: Internal use*
 
 ```Html
@@ -198,7 +198,7 @@ Are five direcive, which together create a table of data, with search, paginatio
 ```
   
 ## label-item
-* **hasIcon:** Show or hide the icon of the label, default: true
+* **hasIcon:** (default: true) Show or hide the icon of the label
 * **index:** The value of the current line, for get the text in appLabels according your value
 * **item:** The property in appLabels
 * **addIndex:** Use when the value in appLabels is an array
@@ -208,8 +208,8 @@ Are five direcive, which together create a table of data, with search, paginatio
     [has-icon="Bool"]
     [index="String"]
     [item="String"]
-    [add-index="String"]
-></label-item>
+    [add-index="String"]>
+</label-item>
 ```
 
 ## table-action
