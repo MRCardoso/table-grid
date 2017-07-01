@@ -10,8 +10,8 @@ $ bower install mrc-table-grid --save
 Add the css and javascript files
 
 ```Html
-<link rel="stylesheet" type="text/css" href="./bower_components/table-grid/dist/table-grid.css">
-<script language="JavaScript" src="./bower_components/table-grid/dist/table-grid.js"></script>
+<link rel="stylesheet" type="text/css" href="./bower_components/table-grid/dist/css/table-grid.min.css">
+<script language="JavaScript" src="./bower_components/table-grid/dist/js/table-grid.min.js"></script>
 ```
 
 Add the dependence in the your module:
@@ -133,9 +133,7 @@ Are five direcive, which together create a table of data, with search, paginatio
 * **filter:** (default: tableConfig.defaultFilter) The databing to filter the grid
 * **order:** (default: orientation+tableConfig.defaultPrimaryKey) The ordenation of the grid
 * **actions:** (default: tableConfig.defaultActions) Actions availables grid options
-* **isOwner:** Define when the 'actions' each line will be show:no implement
 * **showBreadcrumb:** (default: true) Show or hide the header Breadcrumb
-* *searchOptions: Array with the options sent to children directive(paginate-search)(depreciate)*
 * **withSearch:** (default true) Show or hide the field with search in the grid
 * **withCreate:** (default true) Show or hide the button for create new item in the grid
 * **primaryKey:** (default: tableConfig.defaultPrimaryKey) Define which field the primary key
@@ -144,6 +142,8 @@ Are five direcive, which together create a table of data, with search, paginatio
 * **changeLimit:** (default: false) Add a dropdown with the custom limits
 * **lines:** The same that (header-grid)
 * **customAction:** (default: []) Equal to the directive(table-action)
+* **pagBottom:** Show or hide pagination on bottom in the grid
+* **filterOptions:** Additional options of the events into ngModel in search input
 
 ```Html
 <table-grid
@@ -163,7 +163,9 @@ Are five direcive, which together create a table of data, with search, paginatio
     [with-actions="Bool"]
     [change-limit="Bool"]
     [lines="Array({})"]
-    [custom-action="Array({})"]>
+    [custom-action="Array({})"]
+    [pag-bottom="Bool"]
+    [search-options="{}"]>
 </table-grid>
 ```
 
@@ -174,7 +176,8 @@ Are five direcive, which together create a table of data, with search, paginatio
 * **withCreate:** (default: true) Show and hide the 'new' button
 * **withSearch:** (default: true) Show and hide the 'search' input
 * **changeLimit:** (default: false), Enable the dropdown with the list of limitation custom
-* *pagPosition: Internal use*
+* **pagBottom:** (default: false) Show or hide pagination on bottom in the grid
+* **filterOptions:** (default: {updateOn: 'default'}) Additional options of the events into ngModel in search input
 
 ```Html
 <paginate-search-grid
@@ -184,7 +187,9 @@ Are five direcive, which together create a table of data, with search, paginatio
     [with-create="Bool"]
     [with-search="Bool"]
     [change-limit="Bool"]
-    [pag-position="String"]>
+    [pag-position="String"]
+    [pag-bottom="Bool"]
+    [search-options="{}"]>
 </paginate-search-grid>
 ```
 
