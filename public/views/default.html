@@ -6,41 +6,49 @@
         </div>
         <div class="panel-body">
             <div class="form-inline">
-                <div class="form-group">
-                    <label class="control-label col-md-12">
-                        <input type="checkbox" name="changeLimit" ng-model="changeLimit" value="1">
-                        Change limitation
-                    </label>
-                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-12">
+                            <input type="checkbox" name="changeLimit" ng-model="changeLimit" value="1">
+                            Change limitation
+                        </label>
+                    </div>
 
-                <div class="form-group">
-                    <label class="control-label col-md-12">
-                        <input type="checkbox" name="breadcrumb" ng-model="breadcrumb" value="1">
-                        Show Breadcrumb
-                    </label>
-                </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-12">
+                            <input type="checkbox" name="pagBottom" ng-model="pagBottom" value="true">
+                            Pagination on bottom
+                        </label>
+                    </div>
 
-                <div class="form-group">
-                    <label class="control-label col-md-12">
-                        <input type="checkbox" name="showSearch" ng-model="showSearch" value="1">
-                        Show Search
-                    </label>
-                </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-12">
+                            <input type="checkbox" name="breadcrumb" ng-model="breadcrumb" value="1">
+                            Show Breadcrumb
+                        </label>
+                    </div>                
 
-                <div class="form-group">
-                    <label class="control-label col-md-12">
-                        <input type="checkbox" name="showCreate" ng-model="showCreate" value="1">
-                        Show Create button
-                    </label>
-                </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-12">
+                            <input type="checkbox" name="showSearch" ng-model="showSearch" value="1">
+                            Show Search
+                        </label>
+                    </div>
 
-                <div class="form-group">
-                    <label class="control-label col-md-12">
-                        <input type="checkbox" name="showActions" ng-model="showActions" value="1">
-                        Show Actions
-                    </label>
-                </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-12">
+                            <input type="checkbox" name="showCreate" ng-model="showCreate" value="1">
+                            Show Create button
+                        </label>
+                    </div>
 
+                    <div class="form-group">
+                        <label class="control-label col-md-12">
+                            <input type="checkbox" name="showActions" ng-model="showActions" value="1">
+                            Show Actions
+                        </label>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label class="control-label">
                         <input type="checkbox" checked="true" name="action[view]" ng-click="addAction('view')">
@@ -73,6 +81,8 @@
         change-limit="changeLimit"
         lines="lines"
         order="name"
+        pag-bottom="pagBottom"
+        filter-options="{updateOn: 'blur'}"
         fields="[
             {label: 'Nome', column: 'name', type:'simple',sort:true}, 
             {label: 'Tipo', column: 'type', type:'simple', sort:true}, 

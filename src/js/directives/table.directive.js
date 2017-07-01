@@ -27,13 +27,6 @@ angular.module('table.grid')
                 fields: '=fields',
                 /*
                 | ----------------------------------------------------------------
-                | Array of the availables actions in the grid
-                | ----------------------------------------------------------------
-                | array, the defaul options are 'view, edit, remove'
-                |*/
-                actions: '=?actions',                    
-                /*
-                | ----------------------------------------------------------------
                 | string, the databing with the filter for grid
                 | ----------------------------------------------------------------
                 |*/
@@ -58,12 +51,6 @@ angular.module('table.grid')
                 showBreadcrumb: '=?showBreadcrumb',
                 /*
                 | ----------------------------------------------------------------
-                | string, define the owner of the records to set permission to view the 'actions'
-                | ----------------------------------------------------------------
-                |*/
-                isOwner: '=?isOwner',
-                /*
-                | ----------------------------------------------------------------
                 | string, Set the ordenation of the grid
                 | ----------------------------------------------------------------
                 |*/
@@ -82,42 +69,33 @@ angular.module('table.grid')
                 orientation: '@orientation',
                 /*
                 | ----------------------------------------------------------------
-                | bool, Show or hide the field with search in the grid
-                | ----------------------------------------------------------------
-                |*/
-                withSearch: '=?withSearch',
-                /*
-                | ----------------------------------------------------------------
-                | bool, Show or hide the button 'create' in the grid
-                | ----------------------------------------------------------------
-                |*/
-                withCreate: '=?withCreate',
-                /*
-                | ----------------------------------------------------------------
                 | bool, Show or hide the column 'actions' on the grid
                 | ----------------------------------------------------------------
                 |*/
                 withActions: '=?withActions',
                 /*
                 | ----------------------------------------------------------------
-                | bool, enable the dropdown with the list of limitation custom
+                | usage in directive(headerGrid)
                 | ----------------------------------------------------------------
-                |*/
-                changeLimit: '=?changeLimit',
-                /*
-                | ----------------------------------------------------------------
-                | Array, the array with object with the breadcrumb
-                | ----------------------------------------------------------------
-                | equal to the directive(headerGrid)
-                */
+                */                
                 lines: '=?lines',
                 /*
                 | -------------------------------------------------------------------
-                | Array, The action custom for the label-items
+                | usage in directive(paginateSearchGrid)
                 | -------------------------------------------------------------------
-                | equal to the directive(tableAction)
                 */
-                customAction: "=?customAction",
+                withSearch: '=?withSearch',
+                withCreate: '=?withCreate',
+                pagBottom: '=?pagBottom',
+                changeLimit: '=?changeLimit',
+                filterOptions: '=?filterOptions',
+                /*
+                | -------------------------------------------------------------------
+                | usage in directive(tableAction)
+                | -------------------------------------------------------------------
+                */
+                actions: '=?actions',
+                customAction: "=?customAction"
             },            
             controller: ["$scope", "$location", "$filter",'tableConfig', function($scope, $location, $filter, tableConfig)
             {
@@ -131,7 +109,6 @@ angular.module('table.grid')
                 
                 $scope.moduleName = $scope.moduleName || $location.$$path.replace('/','');
                 $scope.showBreadcrumb = $scope.showBreadcrumb != undefined ? $scope.showBreadcrumb : true;
-                $scope.isOwner = $scope.isOwner != undefined ? $scope.isOwner : false;
                 $scope.withSearch = $scope.withSearch != undefined ? $scope.withSearch : true;
                 $scope.withCreate = $scope.withCreate != undefined ? $scope.withCreate : true;
                 $scope.withActions = $scope.withActions != undefined ? $scope.withActions : true;

@@ -5,6 +5,7 @@ angular.module("app.controller",[])
     {
         $scope.searcher = '';
         $scope.breadcrumb=false;
+        $scope.pagBottom=false;
         $scope.moduleName = 'Default';
         $scope.hasIcon = true;
         $scope.showCreate = true;

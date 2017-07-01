@@ -2,7 +2,15 @@
 <header-grid ng-if="showBreadcrumb==true" lines="lines"></header-grid>
 
 <!--Block with pagination, search and add button-->
-<paginate-search-grid filter="filter" limit="limit" with-search="withSearch" with-create="withCreate" change-limit="changeLimit" module-name="moduleName"></paginate-search-grid>
+<paginate-search-grid 
+    filter="filter" 
+    limit="limit" 
+    with-search="withSearch" 
+    with-create="withCreate" 
+    change-limit="changeLimit" 
+    module-name="moduleName"
+    filter-options="filterOptions">
+</paginate-search-grid>
 
 <!--Block with table template default-->
 <table class="table table-striped table-bordered table-hover content table-responsive">
@@ -46,4 +54,4 @@
         </tr>
     </tbody>
 </table>
-<paginate-search-grid filter="filter" limit="limit" with-search="false" with-create="false" module-name="moduleName" pag-position="bottom"></paginate-search-grid>
+<paginate-search-grid ng-if="pagBottom==true" filter="filter" limit="limit" with-search="false" with-create="false" module-name="moduleName" pag-bottom="true"></paginate-search-grid>

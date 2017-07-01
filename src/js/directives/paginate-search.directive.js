@@ -43,11 +43,17 @@ angular.module('table.grid')
                 changeLimit: '=?changeLimit',
                 /*
                 | -------------------------------------------------------------------
-                | string, the position of the template
+                | bool, show or hide pagination on bottom in the grid
                 | -------------------------------------------------------------------
-                | default:'top', available top|bottom
+                | default: false
                 */
-                pagPosition: '@pagPosition',
+                pagBottom: '=?pagBottom',
+                /*
+                | -------------------------------------------------------------------
+                | Array, additional options of the events into ngModel in search input
+                | -------------------------------------------------------------------
+                */
+                filterOptions: '=?filterOptions'
             },
             controller: ["$scope", "$location", "paginationService", "$timeout", "tableConfig", "$filter",function($scope, $location, paginationService, $timeout, tableConfig,$filter)
             {
@@ -56,8 +62,9 @@ angular.module('table.grid')
                 $scope.limits = [5,10,25,50,100,1000];
                 $scope.withSearch = $scope.withSearch != undefined ? $scope.withSearch : true;
                 $scope.withCreate = $scope.withCreate != undefined ? $scope.withCreate : true;
-                $scope.pagPosition = $scope.pagPosition != undefined ? $scope.pagPosition : 'top';
+                $scope.pagBottom = $scope.pagBottom != undefined ? $scope.pagBottom : false;
                 $scope.changeLimit = $scope.changeLimit != undefined ? $scope.changeLimit : false;
+                $scope.filterOptions = $scope.filterOptions || { updateOn: 'default'};
                 
                 $scope.limit = $scope.limit || tableConfig.defaultLimit;
                 $scope.filter = $scope.filter || tableConfig.defaultFilter;

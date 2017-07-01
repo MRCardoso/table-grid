@@ -1,4 +1,4 @@
-<div ng-class="{'template-head': pagPosition == 'top', 'template-foot': pagPosition == 'bottom'}">
+<div ng-class="{'template-head': pagBottom == false, 'template-foot': pagBottom == true}">
     <div class="col-md-4">
         <div ng-show="totalItems > limit">
             <div class="text-center">
@@ -7,7 +7,6 @@
         </div>
         <div ng-show="totalItems == 0 && (filter != null && filter != '')">
             <span class="glyphicon glyphicon-info-sign"></span>
-            {{pagPosition}}
             Nenhum resultado encontrado para <strong>'{{filter}}'</strong>
         </div>
     </div>
@@ -32,7 +31,7 @@
                     </ul>
                 </div>
             </div>
-            <input type="text" ng-model="$parent.filter" ng-change="listen()" class="form-control" placeholder="procure por um registro...">
+            <input type="text" ng-model="$parent.filter" ng-model-options="filterOptions" ng-change="listen()" class="form-control" placeholder="procure por um registro...">
             <div class="input-group-btn" ng-show="withCreate==true">
                 <a ng-href="{{$root.createUrl(moduleName, null, 'create')}}" class="btn btn-primary">
                     <span class="glyphicon glyphicon-plus"></span>
