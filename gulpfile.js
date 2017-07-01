@@ -16,20 +16,22 @@ var gulp = require('gulp'),
 | --------------------------------------------------------------------
 */
 gulp.task('scripts-prod', ['template'], function() {
-  return gulp.src(['src/js/table-grid.js', 'src/**/*.js','dist/table-grid.tpl.js'])
-    .pipe(concat('table-grid.tpl.js'))
-    .pipe(rename('table-grid.js'))
-    .pipe(gulp.dest('dist'))
+  return gulp.src([
+      'src/**/*.js',
+      '!src/**/*.backup.js',
+    ])
+    .pipe(concat('table-grid.js'))
+    .pipe(gulp.dest('dist/js'))
     .pipe(uglify())
     .pipe(rename('table-grid.min.js'))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('template', function() {
   return gulp.src('src/templates/**/*.html')
     .pipe(ngTemplates({ module: 'table.grid' }))
     .pipe(rename('table-grid.tpl.js'))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('src/js'));
 });
 /*
 | --------------------------------------------------------------------
@@ -39,10 +41,10 @@ gulp.task('template', function() {
 gulp.task('css-prod', function(){
     return gulp.src(['src/css/table-grid.css', 'src/**/*.css'])
         .pipe(concat('table-grid.css'))
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('dist/css'))
         .pipe(minifyCss())
         .pipe(rename('table-grid.min.css'))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('dist/css'));
 })
 
 /*

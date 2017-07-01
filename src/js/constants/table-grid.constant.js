@@ -1,10 +1,7 @@
 /**
  * Object with configuration to enable the customize of this directive, aiming the furutes implementations
  */
-(function(){
-    'use strict';
-
-    angular.module('table.grid')
+angular.module('table.grid')
     .constant('tableConfig', {        
         defaultFilter: '',        
         defaultLimit: 5,        
@@ -23,5 +20,4 @@
         debugMode: false,
         url: '', // no implemented
         authentication: null, // no implemented
-    })
-}());
+    });
