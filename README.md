@@ -7,6 +7,13 @@
 $ bower install mrc-table-grid --save
 ````
 
+Add third party dependencies
+
+```Html
+<script language="Javascript" src="./bower_components/angularUtils-pagination/dirPagination.js"></script>
+<script language="javascript" src="./bower_components/angular-bind-html-compile/angular-bind-html-compile.min.js"></script>
+```
+
 Add the css and javascript files
 
 ```Html
@@ -123,8 +130,8 @@ Are five direcive, which together create a table of data, with search, paginatio
     * **template:** Render a template with other directive(label-item)
     * **link:** Render a simple databind with a link href
     * **filter:** Render a simple databind with angular filter
-    * **image:** Render an image, No implement
     * **sort:** Show or hide the option to ordenation ASC DESC the column
+  * **content:** Render a custom content, html tag, simple string, used when the type equal to 'template'
   * **url:** used together 'type="link"', when is '**view**', the url is relative('{baseUrlTmpl}/{viewUrlTmpl}')
   * **icon:** used together 'type="template"', Show or hide the icon of the label directive(label-item)
   * **fk:** The object of the foreign key, this case the property 'column' get the value inner this object

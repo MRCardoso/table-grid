@@ -8,7 +8,8 @@
     angular
         .module('table.grid',[
             'angularUtils.directives.dirPagination',
-            'ui.bootstrap'
+            'ui.bootstrap',
+            'angular-bind-html-compile'
         ])
         .run(["$rootScope", "$filter", function($rootScope, $filter){            
             $rootScope.createUrl = function(path, param, action)

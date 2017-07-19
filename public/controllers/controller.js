@@ -1,6 +1,19 @@
 'use strict';
 
 angular.module("app.controller",[])
+    .directive('mineTest', function(){
+        return {
+            restrict: 'E',
+            template: "<img ng-src='{{url}}'>",
+            replace: true,
+            scope: {
+                url:'=?url'
+            },
+            controller: function($scope){
+                console.log('modeuel', $scope.url)
+            }
+        }
+    })
     .controller('TableController', ['$scope', function ($scope)
     {
         $scope.searcher = '';
@@ -33,7 +46,7 @@ angular.module("app.controller",[])
         
         var words = 'a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z';
 
-        for(let i = 0; i<2000; i++)
+        for(let i = 0; i<200; i++)
         {
             let word = [];
             let wdList = words.split('|');
@@ -51,7 +64,8 @@ angular.module("app.controller",[])
                 type: i,
                 userId: {_id: i+10, name: 'user name' +i},
                 status: Math.floor(Math.random() * 2 + 0), // `${i%2==0?1:0}`,
-                created: date
+                created: date,
+                image: 'https://www.w3schools.com/css/trolltunga.jpg'
             })
         }
 

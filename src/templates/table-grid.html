@@ -40,12 +40,10 @@
                     uib-tooltip="{{renderLine(model, f, false)}}" tooltip-placement="top" tooltip-trigger="mouseenter"></a>
                 </div>
 
-                <div ng-if="f.type=='image'">
-                    <!---image-s3 url="renderLine(model, f)" path="f.pathImage" with-user-id="{{f.userId}}" alt="imagem" class="image-thumb-4"></image-s3-->
-                </div>
-
                 <div ng-if="f.type=='template'">
-                    <label-item has-icon="f.icon" item="{{f.column}}" index="model[f.column]"></label-item>
+                    <!-- Inform a custom template with a text ou html tag -->
+                    <div ng-if="f.content!= 'undefined'" bind-html-compile="f.content"></div> 
+                    <label-item ng-if="f.content == 'undefined'" has-icon="f.icon" item="{{f.column}}" index="model[f.column]"></label-item>
                 </div>
             </td>
             <td ng-if="withActions" style="text-align: center; padding-left: 0.4%; padding-right: 0.4%;">

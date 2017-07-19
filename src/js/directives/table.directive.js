@@ -18,6 +18,7 @@ angular.module('table.grid')
                 | label: the string with text of the column
                 | column: the property name of the lines in the 'model' to be rendered
                 | type: the type of template to be rendered in the line
+                | content: Render a custom content, html tag, simple string, used when the type equal to 'template'
                 | url: with the property 'type="link"', create a link, when your value is 'view' create a local url to view action of the current module
                 | icon: with the property 'type="template"', show or hide the icon of the label
                 | fk: The object of the foreign key, this case the property 'column' get the value inner this object
@@ -97,7 +98,7 @@ angular.module('table.grid')
                 actions: '=?actions',
                 customAction: "=?customAction"
             },            
-            controller: ["$scope", "$location", "$filter",'tableConfig', function($scope, $location, $filter, tableConfig)
+            controller: ["$scope", "$location", "$filter",'tableConfig', '$compile', "$sce", function($scope, $location, $filter, tableConfig, $compile, $sce)
             {
                 if($scope.model == undefined || $scope.fields == undefined)
                 {

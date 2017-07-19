@@ -29,4 +29,7 @@ angular.module('table.grid')
 
             return ( String(str) == 'NaN' ? 1 : Math[type](str));
         }
-    });
+    })
+    .filter('trustAsHtml', ["$sce", function($sce) {
+        return $sce.trustAsHtml;
+    }]);

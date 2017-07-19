@@ -91,6 +91,7 @@
             {label: 'File', column: 'file', type:'simple',sort:false}, 
             {label: 'User', column: 'name', fk: 'userId', type:'simple',sort:true}, 
             {label: 'Status', column: 'status', type:'template'}, 
+            {label: 'Status', type:'template', content: '<mine-test url=\'model.image\' width=\'50\'></mine-test>'}, 
             {label: 'Criação', column: 'created', filter: ['date', 'dd/MM/yyyy'], type:'filter'}, 
         ]">
     </table-grid>
