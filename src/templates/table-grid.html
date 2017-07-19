@@ -36,7 +36,7 @@
                 </div>
 
                 <div ng-if="f.type=='link' && f.url !='undefined'">
-                    <a ng-href="{{f.url=='view' ? createUrl(moduleName, model[primaryKey]) : f.url }}" ng-bind="renderLine(model, f, true)"
+                    <a ng-href="{{f.url=='view' ? $root.createUrl(moduleName, model[primaryKey],'view') : f.url }}" ng-bind="renderLine(model, f, true)"
                     uib-tooltip="{{renderLine(model, f, false)}}" tooltip-placement="top" tooltip-trigger="mouseenter"></a>
                 </div>
 
