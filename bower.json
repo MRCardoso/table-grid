@@ -8,8 +8,8 @@
   ],
   "description": "create the base structure of the a table, with search and pagination",
   "main": [
-      "dist/table-grid.min.js",
-      "dist/table-grid.min.css"
+    "dist/table-grid.min.js",
+    "dist/table-grid.min.css"
   ],
   "keywords": [
     "table",
@@ -18,7 +18,7 @@
     "table-grid",
     "pagination-search",
     "directive"
-  ],  
+  ],
   "ignore": [
     "**/.*",
     "node_modules",
@@ -32,16 +32,17 @@
   ],
   "dependencies": {
     "angular": "1.5.x",
-    "angularUtils-pagination": "angular-utils-pagination#^0.11.1"    
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1",
+    "angular-bind-html-compile": "^1.4.1"
   },
   "devDependencies": {
     "bootstrap": "^3.3.7",
     "angular-route": "1.5.x",
-    "angular-resource": "1.5.x",    
+    "angular-resource": "1.5.x",
     "angular-bootstrap": "^2.5.0"
   },
   "repository": {
-      "type": "git",
-      "url": "https://github.com/MRCardoso/table-grid.git"
+    "type": "git",
+    "url": "https://github.com/MRCardoso/table-grid.git"
   }
 }
