@@ -2,3 +2,5 @@
 /node_modules
 .vscode
 info.txt
+bower-publish.sh
+package-lock.json

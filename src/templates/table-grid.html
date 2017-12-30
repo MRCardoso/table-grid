@@ -35,15 +35,15 @@
                     <span ng-bind="addFilter(model, f, f.filter)"></span>
                 </div>
 
-                <div ng-if="f.type=='link' && f.url !='undefined'">
+                <div ng-if="f.type=='link' && f.url !=undefined">
                     <a ng-href="{{f.url=='view' ? $root.createUrl(moduleName, model[primaryKey],'view') : f.url }}" ng-bind="renderLine(model, f, true)"
                     uib-tooltip="{{renderLine(model, f, false)}}" tooltip-placement="top" tooltip-trigger="mouseenter"></a>
                 </div>
 
                 <div ng-if="f.type=='template'">
                     <!-- Inform a custom template with a text ou html tag -->
-                    <div ng-if="f.content!= 'undefined'" bind-html-compile="f.content"></div> 
-                    <label-item ng-if="f.content == 'undefined'" has-icon="f.icon" item="{{f.column}}" index="model[f.column]"></label-item>
+                    <div ng-if="f.content!= undefined" bind-html-compile="f.content"></div> 
+                    <label-item ng-if="f.content == undefined" has-icon="f.icon" item="{{f.column}}" index="model[f.column]"></label-item>
                 </div>
             </td>
             <td ng-if="withActions" style="text-align: center; padding-left: 0.4%; padding-right: 0.4%;">

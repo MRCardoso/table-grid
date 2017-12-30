@@ -1,0 +1,47 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Custom configurations
+    </div>
+    <table class="table table-hover table-bordered table-condensed">
+        <tr>
+            <th>
+                <label class="control-label">
+                    <input type="checkbox" checked="true" name="action[view]" ng-click="addAction('view')">
+                    view
+                </label>
+
+                <label class="control-label">
+                    <input type="checkbox" checked="true" name="action[edit]" ng-click="addAction('edit')">
+                    Edit
+                </label>
+
+                <label class="control-label">
+                    <input type="checkbox" checked="true" name="action[create]" ng-click="addAction('create')">
+                    Novo
+                </label>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <div class="col-md-4">
+                    <h4 class="text-center control-label">
+                        Actions to Create page
+                    </h4>
+                    <form-buttons actions="actions" type="save" name="moduleName"></form-buttons>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="text-center control-label">
+                        Actions to Update page
+                    </h4>
+                    <form-buttons actions="actions" render-text="icon-text" type="save" id="1" name="moduleName"></form-buttons>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="text-center control-label">
+                        Actions to view page
+                    </h4>
+                    <form-buttons actions="actions" render-text="icon" type="view" id="1" name="moduleName"></form-buttons>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,41 @@
+<div class="clear"></div>
+
+<div class="button-group">
+    <!-- BUTTONS TO INTERFACE 'view' -->
+    <div ng-if="type=='view'">
+        <div class="col-md-7 text-left">
+            <strong>{{label}}</strong>
+            <em class="text-muted">
+                <span ng-bind="extraData"></span>
+            </em>
+        </div>
+        <a ng-href="/#!/{{name}}" class="btn btn-default" uib-tooltip="Voltar" tooltip-placement="top" tooltip-trigger="mouseenter">
+            <i ng-if="hasIcon()" class="glyphicon glyphicon-chevron-left"></i>
+            <span ng-if="hasText()">Voltar</span>
+        </a>
+        <a ng-if="actionAllow('edit')" ng-href="{{$root.createUrl(name, id, 'edit')}}" class="btn btn-warning" uib-tooltip="Editar" uib-tooltip-placement="top" tooltip-trigger="mouseenter">
+            <i ng-if="hasIcon()" class="glyphicon glyphicon-edit"></i>
+            <span ng-if="hasText()">Editar</span>
+        </a>
+        <a ng-if="actionAllow('create')" ng-href="{{$root.createUrl(name, id, 'create')}}" class="btn btn-primary" uib-tooltip="Novo" tooltip-placement="top" tooltip-trigger="mouseenter">
+            <i ng-if="hasIcon()" class="glyphicon glyphicon-plus"></i>
+            <span ng-if="hasText()">Novo</span>
+        </a>
+    </div>
+    
+    <!-- BUTTONS TO INTERFACE 'create|update' -->
+    <div ng-if="type=='save'">
+        <a ng-href="/#!/{{name}}" class="btn btn-default" uib-tooltip="Voltar" tooltip-placement="top" tooltip-trigger="mouseenter">
+            <i ng-if="hasIcon()" class="glyphicon glyphicon-chevron-left"></i>
+            <span ng-if="hasText()">Voltar</span>
+        </a>
+        <a ng-if="actionAllow('view') && id" ng-href="{{$root.createUrl(name, id, 'view')}}" class="btn btn-warning" uib-tooltip="Visualizar" tooltip-placement="top" tooltip-trigger="mouseenter">
+            <i ng-if="hasIcon()" class="glyphicon glyphicon-eye-open"></i>
+            <span ng-if="hasText()">Visualizar</span>
+        </a>
+        <button ng-if="actionAllow('edit')" class="btn btn-blue" uib-tooltip="Salvar" tooltip-placement="top" tooltip-trigger="mouseenter">
+            <i ng-if="hasIcon()" class="glyphicon glyphicon-ok-sign"></i>
+            Salvar
+        </button>
+    </div>
+</div>

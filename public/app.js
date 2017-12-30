@@ -35,6 +35,10 @@ angular.module("tg", [
                     templateUrl: '/views/table-action.html',
                     controller: "TableController"
                 })
+                .when('/form',{
+                    templateUrl: '/views/form.html',
+                    controller: "TableController"
+                })
                 .otherwise({
                     redirectTo: '/'
                 });

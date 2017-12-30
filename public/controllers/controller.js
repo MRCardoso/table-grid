@@ -23,7 +23,7 @@ angular.module("app.controller",[])
         $scope.hasIcon = true;
         $scope.showCreate = true;
         $scope.limitation = 10;
-        $scope.actions = ['view', 'edit', 'remove'];
+        $scope.actions = ['view', 'edit', 'remove', 'create'];
         $scope.lines = [
             {path: '', label: 'Default'},
             {path: 'in', label: 'data'}
