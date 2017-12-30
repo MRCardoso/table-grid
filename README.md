@@ -242,6 +242,27 @@ Are five direcive, which together create a table of data, with search, paginatio
     [actions="Array"]
     [custom-action="Array({})"]>
 </table-action>
+
+
+## form-buttons
+* **id:** Primary Key of the item
+* **name:** The name of the current module
+* **type:** Which buttons should be used (view|save)
+* **label:** The text show together extraData param
+* **extraData:** Additional data to be show in with the type equal to 'view'
+* **actions:** The actions availables grid options
+* **renderText:** The kind of render for each text in the buttons(text|icon|text-icon)
+
+```Html
+<form-buttons
+    [id="String|int"]
+    [name="String"]
+    [type="String"]
+    [label="String"]
+    [extra-data="String"]
+    [actions="Array"]
+    [render-text="String"]>
+</form-buttons>
 ```
 
 ## Changelog
