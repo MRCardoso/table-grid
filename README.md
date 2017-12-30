@@ -242,7 +242,7 @@ Are five direcive, which together create a table of data, with search, paginatio
     [actions="Array"]
     [custom-action="Array({})"]>
 </table-action>
-
+```
 
 ## form-buttons
 * **id:** Primary Key of the item
