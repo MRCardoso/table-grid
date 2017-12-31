@@ -34,8 +34,8 @@
             <span ng-if="hasText()">Visualizar</span>
         </a>
         <button ng-if="actionAllow('edit')" class="btn btn-blue" uib-tooltip="Salvar" tooltip-placement="top" tooltip-trigger="mouseenter">
-            <i ng-if="hasIcon()" class="glyphicon glyphicon-ok-sign"></i>
-            Salvar
+            <i ng-if="hasIcon()" class="glyphicon glyphicon-ok-sign"></i>            
+            <span ng-if="hasText()">Salvar</span>
         </button>
     </div>
 </div>
