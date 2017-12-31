@@ -48,9 +48,9 @@ angular.module('table.grid')
                 */
                 renderText: "@renderText" 
             },
-            controller: ["$scope", "$filter", function($scope, $filter)
+            controller: ["$scope", "$filter", "tableConfig", function($scope, $filter, tableConfig)
             {
-                $scope.actions = $scope.actions || [];
+                $scope.actions = $scope.actions || tableConfig.defaultActions;
                 $scope.type = (angular.isDefined($scope.type) ? $scope.type : 'save');
                 $scope.renderText = (angular.isDefined($scope.renderText) ? $scope.renderText : 'text');
                 

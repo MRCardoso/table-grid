@@ -33,7 +33,7 @@ angular.module('table.grid')
         defaultLimit: 5,        
         defaultPrimaryKey: '_id',
         defaultOrientation: '-', // (-) DESC | () ASC
-        defaultActions: ['view', 'edit', 'remove'],
+        defaultActions: ['view', 'edit', 'remove','create'],
         enableButtons: true,
         appLabels: { "status": {
             "0": { "name": "Inativo", "class": "default", "icon": "ban-circle" },
@@ -97,9 +97,9 @@ angular.module('table.grid')
                 */
                 renderText: "@renderText" 
             },
-            controller: ["$scope", "$filter", function($scope, $filter)
+            controller: ["$scope", "$filter", "tableConfig", function($scope, $filter, tableConfig)
             {
-                $scope.actions = $scope.actions || [];
+                $scope.actions = $scope.actions || tableConfig.defaultActions;
                 $scope.type = (angular.isDefined($scope.type) ? $scope.type : 'save');
                 $scope.renderText = (angular.isDefined($scope.renderText) ? $scope.renderText : 'text');
                 

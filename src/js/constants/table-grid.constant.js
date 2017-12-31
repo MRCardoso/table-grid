@@ -7,7 +7,7 @@ angular.module('table.grid')
         defaultLimit: 5,        
         defaultPrimaryKey: '_id',
         defaultOrientation: '-', // (-) DESC | () ASC
-        defaultActions: ['view', 'edit', 'remove'],
+        defaultActions: ['view', 'edit', 'remove','create'],
         enableButtons: true,
         appLabels: { "status": {
             "0": { "name": "Inativo", "class": "default", "icon": "ban-circle" },
